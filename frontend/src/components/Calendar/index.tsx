@@ -130,6 +130,7 @@ const Calendar = () => {
         startAccessor="start"
         endAccessor="end"
         style={{ height: 500 }}
+        onSelectEvent={(event) => console.log(event)}
         messages={{
           next: "Следующий",
           previous: "Предыдущий",

@@ -4,5 +4,6 @@ import Logo from './Logo';
 import Popup from './Popup';
 import TextField from './TextField';
 import DatePicker from "./DatePicker";
+import Form from "./Form";
 
-export { Calendar, Menu, Logo, Popup, TextField, DatePicker };
+export { Calendar, Menu, Logo, Popup, TextField, DatePicker, Form };
