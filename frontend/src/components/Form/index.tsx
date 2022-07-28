@@ -1,25 +1,14 @@
 import { Button } from "@mui/material"
 import { FormEvent, useState } from "react"
+import { Event } from '../../../../shared/events';
 import DatePicker from "../DatePicker"
 import TextField from "../TextField"
 
-const Form = () => {
+type FormProps = {
+  value: Event | null;
+}
 
-  const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(
-    new Date(),
-  );
-
-  const handleChangeStartDate = (newValue: Date | null) => {
-    setSelectedStartDate(newValue);
-  };
-
-  const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(
-    new Date(),
-  );
-
-  const handleChangeEndDate = (newValue: Date | null) => {
-    setSelectedEndDate(newValue);
-  };
+const Form = (props: FormProps) => {
 
   const onSubmitForm = (e: FormEvent) => {
     e.preventDefault();
@@ -28,13 +17,13 @@ const Form = () => {
 
   return(
     <form className='create-event-form' onSubmit={onSubmitForm}>
-      <TextField name='name' placeholder='Добавьте название' />
-      <DatePicker value={selectedStartDate} onChange={handleChangeStartDate} label='Выберите дату и время начала события' />
-      <DatePicker value={selectedEndDate} onChange={handleChangeEndDate} label='Выберите дату и время окончания события' />
-      <TextField name='description' placeholder='Добавьте описание' multiline />
-      <TextField name='address' placeholder='Адрес' />
-      <TextField name='site' placeholder='Сайт' />
-      <Button type='submit' sx={{marginLeft: 'auto'}}>Создать</Button>
+      <TextField name='name' placeholder='Добавьте название' value={props.value?.title} />
+      <DatePicker value={props.value ? props.value.start : null} onChange={() => console.log('change')} label='Выберите дату и время начала события' />
+      <DatePicker value={props.value ? props.value.start : null} onChange={() => console.log('change')} label='Выберите дату и время окончания события' />
+      <TextField name='description' placeholder='Добавьте описание' multiline value={props.value?.description} />
+      <TextField name='address' placeholder='Адрес' value={props.value?.address} />
+      <TextField name='site' placeholder='Сайт' value={props.value?.site} />
+      <Button type='submit' sx={{marginLeft: 'auto'}}>{props.value?.id ? 'Обновить' : 'Создать'}</Button>
     </form>
   )
 }
