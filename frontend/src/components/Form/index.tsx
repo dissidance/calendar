@@ -1,6 +1,6 @@
 import { Button } from "@mui/material"
-import { FormEvent, useState } from "react"
-import { Event } from '../../../../shared/events';
+import { FormEvent } from "react"
+import { Event } from '../../../../shared/types/events';
 import DatePicker from "../DatePicker"
 import TextField from "../TextField"
 

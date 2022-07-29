@@ -1,6 +1,6 @@
 import moment from 'moment'
 import { Calendar as BigCalendar, momentLocalizer } from 'react-big-calendar'
-import { Event } from '../../../../shared/events';
+import { Event } from '../../../../shared/types/events';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'moment/locale/ru';
 

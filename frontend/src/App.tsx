@@ -1,5 +1,5 @@
 import './App.css';
-import { Event } from '../../shared/events';
+import { Event } from '../../shared/types/events';
 import { Calendar, Form, Menu, Popup } from './components';
 import { useState } from 'react';
 
